@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Personal Care Licensing - Documentation Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .intro-box h2 {
+            color: #c23616;
+            margin-bottom: 10px;
+        }
+
+        .doc-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .doc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .doc-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .doc-title {
+            flex-grow: 1;
+        }
+
+        .doc-title h3 {
+            color: #1e3c72;
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+
+        .doc-title .reference {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .doc-body {
+            color: #333;
+        }
+
+        .doc-body h4 {
+            color: #1e3c72;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .doc-body ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .doc-body li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .doc-body strong {
+            color: #1e3c72;
+        }
+
+        .requirement-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .requirement-box p {
+            margin-bottom: 8px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .important-note strong {
+            color: #856404;
+        }
+
+        .success-highlight {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .success-highlight strong {
+            color: #155724;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 5px;
+        }
+
+        .badge.required {
+            background: #dc3545;
+        }
+
+        .badge.conditional {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .quick-links {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .quick-links h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .quick-links a {
+            color: #ffecd2;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            transition: opacity 0.3s;
+        }
+
+        .quick-links a:hover {
+            opacity: 0.8;
+        }
+
+        .checklist {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .doc-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .doc-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .doc-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Documentation Requirements</h1>
+            <p>Complete Checklist for Maryland RSA License Application</p>
+        </div>
+
+        <div class="content">
+            <div class="intro-box">
+                <h2>🎯 Before You Begin</h2>
+                <p><strong>Total Documents Required: 7 Core Items</strong></p>
+                <p>This comprehensive guide breaks down each documentation requirement in detail. Make sure to gather all items before submitting your application to avoid delays in the 3-4 month review process.</p>
+            </div>
+
+            <!-- Document 1: Application -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">1</div>
+                    <div class="doc-title">
+                        <h3>Completed RSA License Application</h3>
+                        <span class="badge required">REQUIRED</span>
+                        <p class="reference">Available through OHCQ RSA Dashboard</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>What It Is:</strong> The official Maryland Residential Service Agency license application form.</p>
+                    
+                    <h4>Where to Get It:</h4>
+                    <div class="requirement-box">
+                        <p><strong>Online Portal:</strong></p>
+                        <p>Visit: <a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">health.maryland.gov/ohcq/Pages/Programs.aspx</a></p>
+                        <p>Select "Residential Service Agencies"</p>
+                    </div>
+
+                    <h4>What to Include:</h4>
+                    <ul>
+                        <li>Complete all sections thoroughly</li>
+                        <li>Ensure all contact information is accurate (email is critical for updates)</li>
+                        <li>Specify services you intend to provide</li>
+                        <li>Include Section 6 Addendum if opening branch offices</li>
+                    </ul>
+
+                    <div class="important-note">
+                        <p><strong>⚠️ Important:</strong> All notifications will be sent via email. Failure to provide an email address will cause delays.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 2: Business Plan -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">2</div>
+                    <div class="doc-title">
+                        <h3>Business Plan</h3>
+                        <span class="badge required">REQUIRED</span>
+                        <p class="reference">Reference: COMAR 10.07.05.04(A)(2)(h)</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>Purpose:</strong> Demonstrate your financial and administrative ability to operate an RSA in compliance with Maryland regulations.</p>
+                    
+                    <h4>Required Components (3 Parts):</h4>
+                    
+                    <div class="requirement-box">
+                        <p><strong>Part A: 1-Year Operating Budget</strong></p>
+                        <p>Must include:</p>
+                        <ul>
+                            <li><strong>Revenue Projections:</strong> Expected income from services, payer mix (private pay, Medicaid if applicable, insurance)</li>
+                            <li><strong>Operating Expenses:</strong>
+                                <ul>
+                                    <li>Personnel costs (salaries, benefits, payroll taxes)</li>
+                                    <li>Worker's compensation insurance</li>
+                                    <li>Professional liability insurance</li>
+                                    <li>Office rent and utilities</li>
+                                    <li>Equipment and supplies</li>
+                                    <li>Marketing and advertising</li>
+                                    <li>Technology (EMR, scheduling systems)</li>
+                                    <li>Professional services (legal, accounting)</li>
+                                    <li>Training and development</li>
+                                </ul>
+                            </li>
+                            <li><strong>Cash Flow Analysis:</strong> Monthly breakdown showing sustainability</li>
+                            <li><strong>Startup Costs:</strong> If applicable, one-time expenses for launching</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>Part B: Marketing Plan</strong></p>
+                        <p>Must identify:</p>
+                        <ul>
+                            <li><strong>Target Populations:</strong> Specify demographics you'll serve:
+                                <ul>
+                                    <li>Age groups (elderly, pediatric, adult)</li>
+                                    <li>Conditions (Alzheimer's, dementia, post-surgical, chronic illness)</li>
+                                    <li>Service needs (personal care, skilled nursing, therapy)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Geographic Service Area:</strong> Counties/regions you'll cover</li>
+                            <li><strong>Marketing Strategies:</strong>
+                                <ul>
+                                    <li>Referral sources (hospitals, physicians, discharge planners)</li>
+                                    <li>Community outreach methods</li>
+                                    <li>Digital marketing approach</li>
+                                    <li>Partnerships with healthcare organizations</li>
+                                </ul>
+                            </li>
+                            <li><strong>Competitive Advantage:</strong> What sets your agency apart</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>Part C: Detailed Service Description</strong></p>
+                        <p>Provide specific details about:</p>
+                        <ul>
+                            <li><strong>Services Offered:</strong> List each service category:
+                                <ul>
+                                    <li>Home health aide services</li>
+                                    <li>Skilled nursing care</li>
+                                    <li>Physical therapy</li>
+                                    <li>Occupational therapy</li>
+                                    <li>Speech therapy</li>
+                                    <li>Medical social services</li>
+                                    <li>Dietary/nutritional services</li>
+                                </ul>
+                            </li>
+                            <li><strong>Service Delivery Model:</strong> How services will be provided</li>
+                            <li><strong>Hours of Operation:</strong> Availability (24/7, business hours, etc.)</li>
+                            <li><strong>Admission Criteria:</strong> Who you will/won't serve</li>
+                            <li><strong>Quality Assurance:</strong> How you'll ensure quality care</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-highlight">
+                        <p><strong>✓ Pro Tip:</strong> A well-prepared business plan demonstrates credibility and increases approval likelihood. Consider having it reviewed by a healthcare consultant or attorney familiar with Maryland regulations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 3: Organizational Chart -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">3</div>
+                    <div class="doc-title">
+                        <h3>Organizational Chart</h3>
+                        <span class="badge required">REQUIRED</span>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>Purpose:</strong> Clearly illustrate your agency's leadership structure and reporting relationships.</p>
+                    
+                    <h4>What to Include:</h4>
+                    <ul>
+                        <li><strong>Governing Authority:</strong> Board members, owners, or designated individuals with policy/financial responsibility</li>
+                        <li><strong>Executive Leadership:</strong> CEO, Administrator, Executive Director</li>
+                        <li><strong>Required Clinical Leadership:</strong> Director of Nursing or supervising RN (must show credentials)</li>
+                        <li><strong>Department Heads:</strong> Operations, Human Resources, Finance, Quality Assurance</li>
+                        <li><strong>Clinical Staff:</strong> RNs, LPNs, therapists, home health aides</li>
+                        <li><strong>Administrative Staff:</strong> Office manager, schedulers, billing</li>
+                        <li><strong>Reporting Lines:</strong> Clear arrows showing who reports to whom</li>
+                    </ul>
+
+                    <div class="requirement-box">
+                        <p><strong>Key Positions That Must Be Shown:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Position</th>
+                                <th>Requirement</th>
+                            </tr>
+                            <tr>
+                                <td>Governing Authority</td>
+                                <td>At least 1 individual responsible for policy, management, operations, and financial liability</td>
+                            </tr>
+                            <tr>
+                                <td>Registered Nurse (RN)</td>
+                                <td>At least 1 RN with valid Maryland license - will assess clients, develop care plans, supervise staff</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="important-note">
+                        <p><strong>⚠️ Note:</strong> Include names and credentials where applicable. If positions are unfilled, label as "To Be Hired" with target date.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 4: Policies and Procedures -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">4</div>
+                    <div class="doc-title">
+                        <h3>Policies and Procedures Manual</h3>
+                        <span class="badge required">REQUIRED</span>
+                        <p class="reference">Reference: COMAR 10.07.05.08B</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>Purpose:</strong> Demonstrate how your agency will operate in compliance with Maryland regulations across all aspects of care and administration.</p>
+                    
+                    <h4>Required Policy Categories (5 Major Sections):</h4>
+
+                    <div class="requirement-box">
+                        <p><strong>1. ADMINISTRATION POLICIES</strong></p>
+                        <ul>
+                            <li>Agency governance and organizational structure</li>
+                            <li>Coordination of services</li>
+                            <li>Quality improvement program</li>
+                            <li>Complaint management and grievance procedures</li>
+                            <li>Record retention and documentation standards</li>
+                            <li>Confidentiality and HIPAA compliance</li>
+                            <li>Contracts with third-party providers</li>
+                            <li>Financial management</li>
+                            <li>Marketing and public representation compliance</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>2. PERSONNEL POLICIES</strong></p>
+                        <ul>
+                            <li>Job descriptions for all positions</li>
+                            <li>Hiring process and qualification verification</li>
+                            <li>Background check procedures (CJIS/LiveScan)</li>
+                            <li>TB screening requirements</li>
+                            <li>Orientation process for new employees</li>
+                            <li>Initial training requirements (CPR, infection control, abuse prevention, etc.)</li>
+                            <li>Dementia training (3 hours within 45 days + 2 hours annually)</li>
+                            <li>Competency assessments</li>
+                            <li>Ongoing education and in-service training</li>
+                            <li>Performance evaluations</li>
+                            <li>Supervision protocols</li>
+                            <li>Disciplinary procedures</li>
+                            <li>Staff health and safety</li>
+                            <li>Employee classification (employee vs. independent contractor)</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>3. PATIENT CARE POLICIES</strong></p>
+                        <ul>
+                            <li>Admission criteria and process</li>
+                            <li>Initial assessment by RN (for skilled services)</li>
+                            <li>Individualized care plan development</li>
+                            <li>Care plan review and updates</li>
+                            <li>Assignment of appropriate staff to clients</li>
+                            <li>Supervision of care delivery</li>
+                            <li>Clinical services protocols (for each service offered):
+                                <ul>
+                                    <li>Skilled nursing care</li>
+                                    <li>Home health aide services</li>
+                                    <li>Physical therapy</li>
+                                    <li>Occupational therapy</li>
+                                    <li>Speech therapy</li>
+                                    <li>Medical social services</li>
+                                    <li>Dietary/nutritional services</li>
+                                </ul>
+                            </li>
+                            <li>Activities of daily living assistance protocols</li>
+                            <li>Medication management (if applicable)</li>
+                            <li>Communication with physicians and healthcare providers</li>
+                            <li>Emergency procedures and urgent situations</li>
+                            <li>Discharge planning</li>
+                            <li>Client transfer protocols</li>
+                            <li>Client rights and responsibilities</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>4. INFORMED CONSENT POLICIES</strong></p>
+                        <ul>
+                            <li>Informed consent process before service initiation</li>
+                            <li>Client/representative rights notification</li>
+                            <li>Service agreement documentation</li>
+                            <li>Privacy practices (HIPAA Notice)</li>
+                            <li>Financial disclosure and billing practices</li>
+                            <li>Consent for specific treatments or procedures</li>
+                            <li>Advance directives documentation</li>
+                            <li>Right to refuse care</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>5. ENVIRONMENT AND SAFETY POLICIES</strong></p>
+                        <ul>
+                            <li>Infection prevention and control (Standard Precautions)</li>
+                            <li>Hand hygiene protocols</li>
+                            <li>Personal protective equipment (PPE) use</li>
+                            <li>Bloodborne pathogen exposure control</li>
+                            <li>Hazardous materials handling</li>
+                            <li>Safe equipment use and maintenance</li>
+                            <li>Home safety assessments</li>
+                            <li>Fall prevention</li>
+                            <li>Fire safety in client homes</li>
+                            <li>Emergency preparedness and response</li>
+                            <li>Incident reporting (accidents, injuries, errors)</li>
+                            <li>Abuse and neglect prevention, identification, and reporting</li>
+                            <li>Worker safety (injury prevention, exposure protocols)</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-highlight">
+                        <p><strong>✓ Format Recommendations:</strong></p>
+                        <ul>
+                            <li>Each policy should have: Title, Purpose, Scope, Policy Statement, Procedure Steps, References, Effective Date, Review Date</li>
+                            <li>Use clear, professional formatting with table of contents</li>
+                            <li>Number all pages</li>
+                            <li>Include revision history</li>
+                            <li>Have all policies reviewed by qualified legal counsel familiar with Maryland healthcare regulations</li>
+                        </ul>
+                    </div>
+
+                    <div class="important-note">
+                        <p><strong>⚠️ Critical:</strong> The application instructions specify exact policies requested by Maryland. Review the application carefully to ensure you address all required areas. Generic templates must be customized to Maryland-specific requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 5: Letter of Good Standing -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">5</div>
+                    <div class="doc-title">
+                        <h3>Letter of Good Standing</h3>
+                        <span class="badge required">REQUIRED</span>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>What It Is:</strong> Official documentation that your business entity is registered and in good standing with the State of Maryland.</p>
+                    
+                    <h4>Where to Obtain:</h4>
+                    <div class="requirement-box">
+                        <p><strong>Maryland Department of Assessments and Taxation (SDAT)</strong></p>
+                        <p><strong>Business Express Portal:</strong></p>
+                        <p>Visit: <a href="https://egov.maryland.gov/businessexpress" target="_blank">egov.maryland.gov/businessexpress</a></p>
+                    </div>
+
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>Your business must be registered with Maryland SDAT before applying for RSA license</li>
+                        <li>Letter must be current (obtained recently)</li>
+                        <li>Business name on letter must match RSA application exactly</li>
+                        <li>Entity must be in good standing (no outstanding tax issues or compliance problems)</li>
+                    </ul>
+
+                    <h4>What the Letter Confirms:</h4>
+                    <ul>
+                        <li>Business is properly registered in Maryland</li>
+                        <li>All required filings are current</li>
+                        <li>Business is authorized to operate in the state</li>
+                        <li>Tax obligations are up to date</li>
+                    </ul>
+
+                    <div class="important-note">
+                        <p><strong>⚠️ Pre-Requisite:</strong> If you haven't registered your business entity yet, do this FIRST. You cannot complete the RSA license application without it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 6: Worker's Compensation -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">6</div>
+                    <div class="doc-title">
+                        <h3>Worker's Compensation Insurance</h3>
+                        <span class="badge required">REQUIRED</span>
+                        <span class="badge conditional">Exceptions Apply</span>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>What to Submit:</strong> Declaration page from your Worker's Compensation insurance policy.</p>
+                    
+                    <h4>What the Declaration Page Must Show:</h4>
+                    <ul>
+                        <li>Policy holder name (must match your business entity)</li>
+                        <li>Policy number</li>
+                        <li>Effective dates of coverage</li>
+                        <li>Insurance carrier information</li>
+                        <li>Coverage limits</li>
+                        <li>Business classification codes</li>
+                    </ul>
+
+                    <h4>Maryland Worker's Compensation Requirements:</h4>
+                    <div class="requirement-box">
+                        <p><strong>Who Must Have Coverage:</strong></p>
+                        <ul>
+                            <li>Any employer with at least <strong>1 employee</strong> must carry worker's compensation insurance</li>
+                            <li>This includes part-time employees</li>
+                            <li>Coverage must be maintained continuously</li>
+                        </ul>
+                    </div>
+
+                    <h4>Exemptions (Check RSA Application Instructions):</h4>
+                    <div class="important-note">
+                        <p><strong>Possible Exemptions Include:</strong></p>
+                        <ul>
+                            <li>Sole proprietors with no employees (owner only)</li>
+                            <li>Certain independent contractors (must meet strict criteria)</li>
+                            <li>Corporate officers who formally elect to be excluded</li>
+                        </ul>
+                        <p><strong>⚠️ If claiming exemption:</strong> Review the RSA application instruction page carefully. You may need to submit alternative documentation or attestation explaining why coverage is not required.</p>
+                    </div>
+
+                    <h4>Where to Obtain:</h4>
+                    <ul>
+                        <li>Through licensed insurance agents or brokers</li>
+                        <li>Maryland Injured Workers' Insurance Fund (IWIF) - state-sponsored option</li>
+                        <li>Private insurance carriers authorized in Maryland</li>
+                    </ul>
+
+                    <div class="success-highlight">
+                        <p><strong>✓ Pro Tip:</strong> Work with an insurance agent experienced in healthcare agencies. They can ensure proper coverage for home health workers, which may have specific classifications and requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document 7: RSA Certification -->
+            <div class="doc-card">
+                <div class="doc-header">
+                    <div class="doc-number">7</div>
+                    <div class="doc-title">
+                        <h3>RSA Certification</h3>
+                        <span class="badge required">REQUIRED</span>
+                        <p class="reference">Must be renewed every 3 years</p>
+                    </div>
+                </div>
+                <div class="doc-body">
+                    <p><strong>Purpose:</strong> Certify that your agency understands and will comply with Maryland's labor and employment laws regarding employee classification.</p>
+                    
+                    <h4>Two-Step Process:</h4>
+
+                    <div class="requirement-box">
+                        <p><strong>Step 1: Read the Guidance Document</strong></p>
+                        <p>An individual with authority over the RSA's pay or employment practices must thoroughly read the official guidance document that explains:</p>
+                        <ul>
+                            <li><strong>Employee vs. Independent Contractor Differences</strong>
+                                <ul>
+                                    <li>Legal definitions and distinctions</li>
+                                    <li>IRS guidelines</li>
+                                    <li>Maryland Department of Labor standards</li>
+                                    <li>Common misconceptions</li>
+                                </ul>
+                            </li>
+                            <li><strong>Worker Misclassification</strong>
+                                <ul>
+                                    <li>What constitutes misclassification</li>
+                                    <li>Legal consequences and penalties</li>
+                                    <li>Impact on workers and the state</li>
+                                </ul>
+                            </li>
+                            <li><strong>Compliance Steps</strong>
+                                <ul>
+                                    <li>How to properly classify workers</li>
+                                    <li>Documentation requirements</li>
+                                    <li>Best practices for RSAs</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><strong>Access Guidance Document:</strong><br>
+                        <a href="https://health.maryland.gov/ohcq/docs/Residential%20Service%20Agency%20Documents/2022-11-01%20RSAPCA%20Guidance%20Document%20%281%29.pdf" target="_blank">Download RSA/PCA Guidance Document</a></p>
+                    </div>
+
+                    <div class="requirement-box">
+                        <p><strong>Step 2: Complete the Online Certification Form</strong></p>
+                        <p>After reading the guidance document, complete the certification form online.</p>
+                        <p><strong>Who Must Sign:</strong> An individual with authority over the agency's pay or employment practices (owner, CEO, HR director, etc.)</p>
+                        <p><strong>What You're Certifying:</strong></p>
+                        <ul>
+                            <li>You have read and understood the guidance document</li>
+                            <li>Your RSA will comply with relevant requirements of Maryland's Labor and Employment Article</li>
+                            <li>If receiving Medicaid reimbursement: Indicate whether you use personal care aides designated as independent contractors</li>
+                        </ul>
+                    </div>
+
+                    <div class="important-note">
+                        <p><strong>⚠️ Critical Compliance Issue:</strong> Worker misclassification is a serious matter in Maryland. Many RSAs have faced penalties for improperly classifying employees as independent contractors. Take this certification seriously and consult with legal counsel if you have any questions about proper classification.</p>
+                    </div>
+
+                    <h4>Key Points About Independent Contractors:</h4>
+                    <div class="requirement-box">
+                        <p>For a worker to be properly classified as an independent contractor (not an employee), they generally must:</p>
+                        <ul>
+                            <li>Control how, when, and where they perform work</li>
+                            <li>Have their own business with multiple clients</li>
+                            <li>Provide their own tools and equipment</li>
+                            <li>Have opportunity for profit or loss</li>
+                            <li>Not be integrated into your agency's regular business operations</li>
+                        </ul>
+                        <p><strong>⚠️ Red Flag:</strong> If your agency controls work schedules, provides training, supervises work closely, or the worker only works for your agency, they are likely an employee, not an independent contractor.</p>
+                    </div>
+
+                    <h4>Renewal Requirement:</h4>
+                    <div class="success-highlight">
+                        <p><strong>Every 3 Years:</strong> Licensed RSAs must recertify by reviewing the most current guidance document and completing a new certification form. OHCQ will provide the updated guidance document annually.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Reference Checklist -->
+            <div class="section">
+                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">✅ Application Submission Checklist</h2>
+                <div class="checklist">
+                    <h3 style="margin-bottom: 15px; color: #1e3c72;">Before Submitting, Verify You Have:</h3>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check1">
+                        <label for="check1"><strong>1. Completed RSA License Application</strong> - All sections filled out, email address included</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2">
+                        <label for="check2"><strong>2. Business Plan</strong> - Including 1-year budget, marketing plan, and detailed service descriptions</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3">
+                        <label for="check3"><strong>3. Organizational Chart</strong> - Showing all key positions and reporting structure</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4">
+                        <label for="check4"><strong>4. Policies and Procedures Manual</strong> - All 5 required sections (Administration, Personnel, Patient Care, Informed Consent, Environment & Safety)</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5">
+                        <label for="check5"><strong>5. Letter of Good Standing</strong> - From Maryland SDAT Business Express</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check6">
+                        <label for="check6"><strong>6. Worker's Compensation</strong> - Declaration page (or exemption documentation)</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check7">
+                        <label for="check7"><strong>7. RSA Certification</strong> - Completed online after reading guidance document</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check8">
+                        <label for="check8"><strong>All documents reviewed</strong> - Names, dates, and information match across all documents</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check9">
+                        <label for="check9"><strong>Digital copies prepared</strong> - All documents scanned and ready for electronic submission</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submission Methods -->
+            <div class="section" style="margin-top: 40px;">
+                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">📤 How to Submit</h2>
+                
+                <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+                    <div style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60;">
+                        <h3 style="color: #1e7e34; margin-bottom: 15px;">✅ RECOMMENDED: Electronic Submission</h3>
+                        <p><strong>Via OHCQ RSA Dashboard:</strong></p>
+                        <p><a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">health.maryland.gov/ohcq/Pages/Programs.aspx</a></p>
+                        <p style="margin-top: 10px;">Select "Residential Service Agencies"</p>
+                        <p style="margin-top: 10px;"><em>Benefits: Faster processing, automatic confirmation, easier tracking</em></p>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 15px; border-left: 5px solid #667eea;">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">📮 Alternative: Mail Submission</h3>
+                        <p><strong>Mail to:</strong></p>
+                        <p>Ambulatory Care Program<br>
+                        Office of Health Care Quality<br>
+                        7120 Samuel Morse Drive, Second Floor<br>
+                        Columbia, MD 21046</p>
+                        <p style="margin-top: 10px;"><em>Note: Email updates still required, so provide email even if mailing</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="section" style="margin-top: 40px;">
+                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">⏱️ Expected Timeline</h2>
+                <div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 25px; border-radius: 15px;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Application Review:</strong> 3-4 months</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Provisional License:</strong> 90 days (cannot be extended)</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Patient Admission Period:</strong> Admit 3 patients, 6 visits each</li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>On-Site Survey:</strong> After day 45 of provisional license</li>
+                        <li style="padding: 10px 0;"><strong>Full License Issued:</strong> Upon passing survey</li>
+                    </ul>
+                    <p style="margin-top: 20px; color: #856404;"><strong>Total estimated time from submission to full licensure: 5-7 months</strong></p>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="quick-links">
+                <h3>📚 Helpful Resources & Links</h3>
+                <a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">→ OHCQ RSA Dashboard & Application Portal</a>
+                <a href="https://app.smartsheet.com/b/publish?EQBCT=d921c57d95544edc84bf34759f84aad8" target="_blank">→ Residential Service Agencies Information</a>
+                <a href="https://health.maryland.gov/ohcq/docs/Residential%20Service%20Agency%20Documents/2022-11-01%20RSAPCA%20Guidance%20Document%20%281%29.pdf" target="_blank">→ RSA/PCA Guidance Document (Employee Classification)</a>
+                <a href="https://egov.maryland.gov/businessexpress" target="_blank">→ Maryland SDAT Business Express (Letter of Good Standing)</a>
+                <a href="https://www.dpscs.state.md.us/publicservs/fingerprint.shtml" target="_blank">→ LiveScan Fingerprinting Locations</a>
+                <a href="https://marylandfingerprinting.com/" target="_blank">→ Maryland Fingerprinting Pre-Registration</a>
+                <a href="https://mbon.maryland.gov/Pages/default.aspx" target="_blank">→ Maryland Board of Nursing</a>
+                <a href="https://mbon.maryland.gov/Pages/cna-info.aspx" target="_blank">→ Certified Nursing Assistant Information</a>
+            </div>
+
+            <!-- Footer -->
+            <div style="text-align: center; padding: 30px 0; margin-top: 40px; border-top: 2px solid #e0e0e0;">
+                <p style="color: #666; margin-bottom: 10px;"><strong>Need Assistance?</strong></p>
+                <p style="color: #666;">Office of Health Care Quality</p>
+                <p style="color: #666;">Phone: (410) 402-8015</p>
+                <p style="color: #999; font-size: 0.9em; margin-top: 20px;">This guide is for informational purposes only and does not constitute legal advice.<br>Consult with qualified legal counsel for specific guidance on your application.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Make checkboxes persist in local storage
+        document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
+            const id = checkbox.id;
+            checkbox.checked = localStorage.getItem(id) === 'true';
+            
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(id, this.checked);
+            });
+        });
+    </script>
+</body>
+</html>
