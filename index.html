@@ -1,934 +1,794 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD Personal Care Licensing - Documentation Checklist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMAR 10.07.05 Quick Reference - Comfort Keepers of Annapolis</title>
+<style>
+:root {
+  --navy:   #1B3A5C;
+  --blue:   #2E75B6;
+  --gold:   #C9963B;
+  --light:  #EBF2FA;
+  --gray:   #F5F7FA;
+  --mid:    #6B8CAE;
+  --dark:   #111827;
+  --green:  #1B5E38;
+  --purple: #4A1469;
+  --red:    #8B2020;
+  --teal:   #0D5C5C;
+  --ink:    #0D1B2A;
+  --white:  #ffffff;
+  --slate:  #475569;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            line-height: 1.6;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 13px; }
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  background: #F5F7FA;
+  color: #111827;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
+#export-btn {
+  position: fixed; top: 18px; right: 18px; z-index: 9999;
+  background: var(--gold); color: #fff; border: none;
+  padding: 11px 22px; font-family: Arial, sans-serif;
+  font-weight: 700; font-size: 13px; letter-spacing: .06em;
+  text-transform: uppercase; border-radius: 4px; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  transition: background .2s;
+}
+#export-btn:hover { background: #b58530; }
+#export-btn:disabled { background: #999; cursor: wait; }
 
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
+.page { width: 1100px; margin: 0 auto; padding: 0 0 0; }
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+/* HERO */
+.hero {
+  background: var(--navy) !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  padding: 34px 40px 28px; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; right: -60px; top: -60px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,117,182,.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-gold-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+  background: var(--gold) !important;
+}
+.hero-inner { position: relative; z-index: 2; }
+.hero-eyebrow {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--gold) !important; margin-bottom: 8px;
+}
+.hero-title {
+  font-family: Arial Black, Arial, sans-serif;
+  font-weight: 900; font-size: 42px; line-height: 1; color: #fff !important;
+  letter-spacing: -.5px; margin-bottom: 6px;
+}
+.hero-title span { color: var(--gold) !important; }
+.hero-sub { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,.72) !important; margin-bottom: 18px; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.12) !important;
+  border: 1px solid rgba(255,255,255,.2); border-radius: 3px;
+  padding: 5px 12px; font-weight: 700; font-size: 10.5px;
+  letter-spacing: .06em; color: #fff !important; text-transform: uppercase;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold) !important; flex-shrink: 0;
+}
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
+/* STAT ROW */
+.stat-row {
+  display: grid; grid-template-columns: repeat(6,1fr); gap: 0;
+  background: var(--ink) !important;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.stat {
+  padding: 15px 12px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.08); position: relative;
+  background: var(--ink) !important;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.stat:last-child { border-right: none; }
+.stat-val {
+  font-family: Arial Black, Arial, sans-serif; font-weight: 900; font-size: 28px;
+  line-height: 1; color: var(--gold) !important; display: block;
+}
+.stat-label {
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; color: rgba(255,255,255,.5) !important; margin-top: 4px; display: block;
+}
+.stat-bar { position: absolute; bottom: 0; left: 20%; right: 20%; height: 2px; }
 
-        .content {
-            padding: 40px;
-        }
+/* CONTENT */
+.content { padding: 26px 26px 0; }
+.section { margin-bottom: 22px; }
 
-        .intro-box {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #ff6b6b;
-        }
+/* SECTION HEADER */
+.sec-head {
+  display: flex; align-items: stretch; border-radius: 5px; overflow: hidden;
+  margin-bottom: 8px;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.sec-accent { width: 5px; flex-shrink: 0; background: var(--gold) !important; }
+.sec-titles {
+  flex: 1; padding: 9px 14px 8px;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.sec-title {
+  font-family: Arial Black, Arial, sans-serif;
+  font-weight: 900; font-size: 14px; letter-spacing: .02em;
+  text-transform: uppercase; color: #fff !important;
+}
+.sec-sub { font-size: 10px; color: rgba(255,255,255,.55) !important; font-weight: 400; }
 
-        .intro-box h2 {
-            color: #c23616;
-            margin-bottom: 10px;
-        }
+/* CHAPTER GRID */
+.ch-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.ch-card {
+  border-radius: 6px; overflow: hidden; background: #fff !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
+  display: flex; flex-direction: column;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.ch-card-head {
+  padding: 8px 11px 7px; display: flex; align-items: center; gap: 7px;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.ch-num {
+  min-width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(255,255,255,.22) !important; display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 900; font-size: 10px; color: #fff !important; flex-shrink: 0;
+  padding: 0 4px;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.ch-name { font-weight: 700; font-size: 10.5px; color: #fff !important; line-height: 1.2; }
+.ch-stds { padding: 7px 9px 9px; background: #fff !important; flex: 1; }
+.ch-std-row {
+  display: flex; gap: 5px; padding: 3.5px 0;
+  border-bottom: 1px solid #F0F3F7;
+}
+.ch-std-row:last-child { border-bottom: none; }
+.ch-std-code { font-weight: 700; font-size: 9px; flex-shrink: 0; width: 26px; margin-top: 1px; }
+.ch-std-text { font-size: 9.5px; color: #374151; line-height: 1.4; }
 
-        .doc-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
+/* TWO/THREE COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-        .doc-card:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-color: #667eea;
-        }
+/* POLICY CROSSWALK TABLE */
+.cx-table {
+  width: 100%; border-collapse: collapse; font-size: 10px;
+  background: #fff; border-radius: 5px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.cx-table th {
+  padding: 7px 9px; text-align: left; font-weight: 700; font-size: 9px;
+  letter-spacing: .06em; text-transform: uppercase; color: #fff !important;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.cx-table td { padding: 5px 9px; border-bottom: 1px solid #EEF2F7; vertical-align: top; line-height: 1.4; }
+.cx-table tr:nth-child(even) td { background: #F8FAFC !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+.cx-table tr:last-child td { border-bottom: none; }
 
-        .doc-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
+/* DEADLINES TABLE */
+.dl-table {
+  width: 100%; border-collapse: collapse; font-size: 10px;
+  background: #fff; border-radius: 5px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.dl-table th {
+  background: var(--red) !important; color: #fff !important; padding: 7px 9px;
+  text-align: left; font-weight: 700; font-size: 9px;
+  letter-spacing: .06em; text-transform: uppercase;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.dl-table td { padding: 5px 9px; border-bottom: 1px solid #F3E8E8; vertical-align: top; line-height: 1.4; }
+.dl-table tr:nth-child(even) td { background: #FEF9F9 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+.dl-table tr:last-child td { border-bottom: none; }
+.dl-topic { font-weight: 700; color: #111827; font-size: 10px; }
+.dl-req { color: #374151; font-size: 9.5px; }
+.dl-consequence { color: var(--red) !important; font-weight: 700; font-size: 9.5px; }
 
-        .doc-number {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
+/* RN SUPERVISION CARDS */
+.rn-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.rn-card {
+  background: #fff !important; border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07); overflow: hidden;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.rn-card-head {
+  padding: 7px 11px; font-weight: 700; font-size: 11px; letter-spacing: .04em;
+  text-transform: uppercase; color: #fff !important;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.rn-card-body { padding: 9px 11px; }
+.rn-freq {
+  font-family: Arial Black, Arial, sans-serif; font-weight: 900; font-size: 22px;
+  line-height: 1; margin-bottom: 4px;
+}
+.rn-desc { font-size: 9.5px; color: #374151; line-height: 1.4; }
 
-        .doc-title {
-            flex-grow: 1;
-        }
+/* SCOPE CARDS */
+.scope-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.scope-card {
+  background: #fff !important; border-radius: 5px; padding: 11px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07); border-left: 3px solid;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.scope-title { font-weight: 700; font-size: 11px; color: #111827; margin-bottom: 4px; }
+.scope-desc { font-size: 9.5px; color: #374151; line-height: 1.4; }
+.scope-ref { font-size: 8.5px; color: #6B7280; margin-top: 4px; font-weight: 600; }
 
-        .doc-title h3 {
-            color: #1e3c72;
-            font-size: 1.6em;
-            margin-bottom: 5px;
-        }
+/* APPLICATION CHECKLIST */
+.app-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+.app-card {
+  background: #fff !important; border-radius: 5px; padding: 9px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07); border-top: 3px solid;
+  display: flex; gap: 8px; align-items: flex-start;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.app-icon {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 10px; color: #fff !important; flex-shrink: 0;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+}
+.app-text { flex: 1; }
+.app-name { font-weight: 700; font-size: 10.5px; color: #111827; line-height: 1.3; }
+.app-detail { font-size: 9px; color: #6B7280; line-height: 1.3; margin-top: 2px; }
 
-        .doc-title .reference {
-            color: #666;
-            font-size: 0.9em;
-            font-style: italic;
-        }
+/* FOOTER */
+.footer {
+  background: var(--ink) !important;
+  -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+  margin: 22px 0 0; padding: 13px 26px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.footer-left {
+  font-weight: 700; font-size: 12px; color: var(--gold) !important; letter-spacing: .04em;
+}
+.footer-right { font-size: 9px; color: rgba(255,255,255,.4) !important; text-align: right; }
 
-        .doc-body {
-            color: #333;
-        }
+/* ── PRINT ─────────────────────────────────────────────────────── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  #export-btn { display: none !important; }
+  html, body { font-size: 10px !important; background: #fff !important; }
+  .page { width: 100% !important; padding-bottom: 0 !important; }
 
-        .doc-body h4 {
-            color: #1e3c72;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
+  /* Compact hero for print */
+  .hero { background: var(--navy) !important; padding: 20px 30px 18px !important; }
+  .hero-title { font-size: 34px !important; }
+  .hero-sub { margin-bottom: 10px !important; }
 
-        .doc-body ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
+  .stat-row, .stat { background: var(--ink) !important; }
+  .stat { padding: 10px 8px !important; }
+  .stat-val { font-size: 22px !important; }
 
-        .doc-body li {
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
+  .ch-card, .rn-card, .scope-card, .app-card { box-shadow: none !important; border: 1px solid #dde5ef !important; }
+  .cx-table, .dl-table { box-shadow: none !important; }
+  .footer { background: var(--ink) !important; }
 
-        .doc-body strong {
-            color: #1e3c72;
-        }
+  .ch-grid { grid-template-columns: repeat(4,1fr) !important; gap: 5px !important; }
+  .two-col { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .rn-grid { grid-template-columns: repeat(3,1fr) !important; gap: 5px !important; }
+  .scope-grid { grid-template-columns: repeat(3,1fr) !important; gap: 5px !important; }
+  .app-grid { grid-template-columns: repeat(2,1fr) !important; gap: 5px !important; }
+  .content { padding: 12px 14px 0 !important; }
+  .section { margin-bottom: 12px !important; }
+  .sec-head { margin-bottom: 5px !important; }
 
-        .requirement-box {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
+  @page { size: A3 landscape; margin: 8mm; }
 
-        .requirement-box p {
-            margin-bottom: 8px;
-        }
-
-        .important-note {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-
-        .important-note strong {
-            color: #856404;
-        }
-
-        .success-highlight {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-
-        .success-highlight strong {
-            color: #155724;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 5px 12px;
-            background: #667eea;
-            color: white;
-            border-radius: 15px;
-            font-size: 0.85em;
-            margin-right: 8px;
-            margin-bottom: 5px;
-        }
-
-        .badge.required {
-            background: #dc3545;
-        }
-
-        .badge.conditional {
-            background: #ffc107;
-            color: #333;
-        }
-
-        .quick-links {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-
-        .quick-links h3 {
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .quick-links a {
-            color: #ffecd2;
-            text-decoration: none;
-            display: block;
-            padding: 8px 0;
-            transition: opacity 0.3s;
-        }
-
-        .quick-links a:hover {
-            opacity: 0.8;
-        }
-
-        .checklist {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .checklist-item {
-            padding: 12px;
-            margin: 8px 0;
-            background: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .checklist-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-            cursor: pointer;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: 600;
-        }
-
-        tr:hover {
-            background: #f8f9fa;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-            }
-            
-            .doc-card {
-                page-break-inside: avoid;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .doc-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .doc-number {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
+  /* Allow large sections to flow across pages; only protect individual cards */
+  .ch-card { break-inside: avoid; }
+  .rn-card { break-inside: avoid; }
+  .scope-card { break-inside: avoid; }
+  .app-card { break-inside: avoid; }
+  .stat { break-inside: avoid; }
+  .dl-table { break-inside: avoid; }
+  .cx-table { break-inside: avoid; }
+  .two-col > .section { break-inside: avoid; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📋 Documentation Requirements</h1>
-            <p>Complete Checklist for Maryland RSA License Application</p>
-        </div>
 
-        <div class="content">
-            <div class="intro-box">
-                <h2>🎯 Before You Begin</h2>
-                <p><strong>Total Documents Required: 7 Core Items</strong></p>
-                <p>This comprehensive guide breaks down each documentation requirement in detail. Make sure to gather all items before submitting your application to avoid delays in the 3-4 month review process.</p>
-            </div>
+<button id="export-btn" onclick="exportPDF()">&#11015; Export to PDF</button>
 
-            <!-- Document 1: Application -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">1</div>
-                    <div class="doc-title">
-                        <h3>Completed RSA License Application</h3>
-                        <span class="badge required">REQUIRED</span>
-                        <p class="reference">Available through OHCQ RSA Dashboard</p>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>What It Is:</strong> The official Maryland Residential Service Agency license application form.</p>
-                    
-                    <h4>Where to Get It:</h4>
-                    <div class="requirement-box">
-                        <p><strong>Online Portal:</strong></p>
-                        <p>Visit: <a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">health.maryland.gov/ohcq/Pages/Programs.aspx</a></p>
-                        <p>Select "Residential Service Agencies"</p>
-                    </div>
+<div class="page">
 
-                    <h4>What to Include:</h4>
-                    <ul>
-                        <li>Complete all sections thoroughly</li>
-                        <li>Ensure all contact information is accurate (email is critical for updates)</li>
-                        <li>Specify services you intend to provide</li>
-                        <li>Include Section 6 Addendum if opening branch offices</li>
-                    </ul>
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Maryland Department of Health &nbsp;&middot;&nbsp; Office of Health Care Quality &nbsp;&middot;&nbsp; Internal Reference</div>
+    <div class="hero-title">COMAR 10.07.05<br><span>Quick Reference</span></div>
+    <div class="hero-sub">Comfort Keepers of Annapolis &nbsp;&middot;&nbsp; Jugan &amp; JK Senior Companions LLC &nbsp;&middot;&nbsp; Anne Arundel County, MD</div>
+    <div class="hero-badges">
+      <span class="hero-badge"><span class="dot"></span>29 Sections</span>
+      <span class="hero-badge"><span class="dot"></span>RSA Licensed - OHCQ</span>
+      <span class="hero-badge"><span class="dot"></span>Non-Skilled RSA</span>
+      <span class="hero-badge"><span class="dot"></span>Health-General Title 19, Subtitle 4A</span>
+      <span class="hero-badge"><span class="dot"></span>COMAR 10.27.11 Nurse Delegation</span>
+    </div>
+  </div>
+  <div class="hero-gold-bar"></div>
+</div>
 
-                    <div class="important-note">
-                        <p><strong>⚠️ Important:</strong> All notifications will be sent via email. Failure to provide an email address will cause delays.</p>
-                    </div>
-                </div>
-            </div>
+<!-- ══ STAT ROW ═════════════════════════════════════════════════════ -->
+<div class="stat-row">
+  <div class="stat">
+    <span class="stat-val">29</span>
+    <span class="stat-label">Regulation Sections</span>
+    <div class="stat-bar" style="background:var(--blue)"></div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">3 yr</span>
+    <span class="stat-label">License Cycle</span>
+    <div class="stat-bar" style="background:var(--gold)"></div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">$1K</span>
+    <span class="stat-label">License Fee / 3 Years</span>
+    <div class="stat-bar" style="background:var(--gold)"></div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">5 yr</span>
+    <span class="stat-label">Client Record Retention</span>
+    <div class="stat-bar" style="background:var(--green)"></div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">45 d</span>
+    <span class="stat-label">RN Supervision (Meds)</span>
+    <div class="stat-bar" style="background:var(--red)"></div>
+  </div>
+  <div class="stat">
+    <span class="stat-val">21+</span>
+    <span class="stat-label">Min Age to Apply</span>
+    <div class="stat-bar" style="background:var(--purple)"></div>
+  </div>
+</div>
 
-            <!-- Document 2: Business Plan -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">2</div>
-                    <div class="doc-title">
-                        <h3>Business Plan</h3>
-                        <span class="badge required">REQUIRED</span>
-                        <p class="reference">Reference: COMAR 10.07.05.04(A)(2)(h)</p>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>Purpose:</strong> Demonstrate your financial and administrative ability to operate an RSA in compliance with Maryland regulations.</p>
-                    
-                    <h4>Required Components (3 Parts):</h4>
-                    
-                    <div class="requirement-box">
-                        <p><strong>Part A: 1-Year Operating Budget</strong></p>
-                        <p>Must include:</p>
-                        <ul>
-                            <li><strong>Revenue Projections:</strong> Expected income from services, payer mix (private pay, Medicaid if applicable, insurance)</li>
-                            <li><strong>Operating Expenses:</strong>
-                                <ul>
-                                    <li>Personnel costs (salaries, benefits, payroll taxes)</li>
-                                    <li>Worker's compensation insurance</li>
-                                    <li>Professional liability insurance</li>
-                                    <li>Office rent and utilities</li>
-                                    <li>Equipment and supplies</li>
-                                    <li>Marketing and advertising</li>
-                                    <li>Technology (EMR, scheduling systems)</li>
-                                    <li>Professional services (legal, accounting)</li>
-                                    <li>Training and development</li>
-                                </ul>
-                            </li>
-                            <li><strong>Cash Flow Analysis:</strong> Monthly breakdown showing sustainability</li>
-                            <li><strong>Startup Costs:</strong> If applicable, one-time expenses for launching</li>
-                        </ul>
-                    </div>
+<div class="content">
 
-                    <div class="requirement-box">
-                        <p><strong>Part B: Marketing Plan</strong></p>
-                        <p>Must identify:</p>
-                        <ul>
-                            <li><strong>Target Populations:</strong> Specify demographics you'll serve:
-                                <ul>
-                                    <li>Age groups (elderly, pediatric, adult)</li>
-                                    <li>Conditions (Alzheimer's, dementia, post-surgical, chronic illness)</li>
-                                    <li>Service needs (personal care, skilled nursing, therapy)</li>
-                                </ul>
-                            </li>
-                            <li><strong>Geographic Service Area:</strong> Counties/regions you'll cover</li>
-                            <li><strong>Marketing Strategies:</strong>
-                                <ul>
-                                    <li>Referral sources (hospitals, physicians, discharge planners)</li>
-                                    <li>Community outreach methods</li>
-                                    <li>Digital marketing approach</li>
-                                    <li>Partnerships with healthcare organizations</li>
-                                </ul>
-                            </li>
-                            <li><strong>Competitive Advantage:</strong> What sets your agency apart</li>
-                        </ul>
-                    </div>
+<!-- ══ SECTION OVERVIEW ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head" style="background:var(--navy)">
+    <div class="sec-accent" style="background:var(--gold)"></div>
+    <div class="sec-titles">
+      <span class="sec-title">Regulation Overview</span>
+      <span class="sec-sub">COMAR 10.07.05 - All 29 Sections grouped by category</span>
+    </div>
+  </div>
+  <div class="ch-grid">
 
-                    <div class="requirement-box">
-                        <p><strong>Part C: Detailed Service Description</strong></p>
-                        <p>Provide specific details about:</p>
-                        <ul>
-                            <li><strong>Services Offered:</strong> List each service category:
-                                <ul>
-                                    <li>Home health aide services</li>
-                                    <li>Skilled nursing care</li>
-                                    <li>Physical therapy</li>
-                                    <li>Occupational therapy</li>
-                                    <li>Speech therapy</li>
-                                    <li>Medical social services</li>
-                                    <li>Dietary/nutritional services</li>
-                                </ul>
-                            </li>
-                            <li><strong>Service Delivery Model:</strong> How services will be provided</li>
-                            <li><strong>Hours of Operation:</strong> Availability (24/7, business hours, etc.)</li>
-                            <li><strong>Admission Criteria:</strong> Who you will/won't serve</li>
-                            <li><strong>Quality Assurance:</strong> How you'll ensure quality care</li>
-                        </ul>
-                    </div>
-
-                    <div class="success-highlight">
-                        <p><strong>✓ Pro Tip:</strong> A well-prepared business plan demonstrates credibility and increases approval likelihood. Consider having it reviewed by a healthcare consultant or attorney familiar with Maryland regulations.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Document 3: Organizational Chart -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">3</div>
-                    <div class="doc-title">
-                        <h3>Organizational Chart</h3>
-                        <span class="badge required">REQUIRED</span>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>Purpose:</strong> Clearly illustrate your agency's leadership structure and reporting relationships.</p>
-                    
-                    <h4>What to Include:</h4>
-                    <ul>
-                        <li><strong>Governing Authority:</strong> Board members, owners, or designated individuals with policy/financial responsibility</li>
-                        <li><strong>Executive Leadership:</strong> CEO, Administrator, Executive Director</li>
-                        <li><strong>Required Clinical Leadership:</strong> Director of Nursing or supervising RN (must show credentials)</li>
-                        <li><strong>Department Heads:</strong> Operations, Human Resources, Finance, Quality Assurance</li>
-                        <li><strong>Clinical Staff:</strong> RNs, LPNs, therapists, home health aides</li>
-                        <li><strong>Administrative Staff:</strong> Office manager, schedulers, billing</li>
-                        <li><strong>Reporting Lines:</strong> Clear arrows showing who reports to whom</li>
-                    </ul>
-
-                    <div class="requirement-box">
-                        <p><strong>Key Positions That Must Be Shown:</strong></p>
-                        <table>
-                            <tr>
-                                <th>Position</th>
-                                <th>Requirement</th>
-                            </tr>
-                            <tr>
-                                <td>Governing Authority</td>
-                                <td>At least 1 individual responsible for policy, management, operations, and financial liability</td>
-                            </tr>
-                            <tr>
-                                <td>Registered Nurse (RN)</td>
-                                <td>At least 1 RN with valid Maryland license - will assess clients, develop care plans, supervise staff</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="important-note">
-                        <p><strong>⚠️ Note:</strong> Include names and credentials where applicable. If positions are unfilled, label as "To Be Hired" with target date.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Document 4: Policies and Procedures -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">4</div>
-                    <div class="doc-title">
-                        <h3>Policies and Procedures Manual</h3>
-                        <span class="badge required">REQUIRED</span>
-                        <p class="reference">Reference: COMAR 10.07.05.08B</p>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>Purpose:</strong> Demonstrate how your agency will operate in compliance with Maryland regulations across all aspects of care and administration.</p>
-                    
-                    <h4>Required Policy Categories (5 Major Sections):</h4>
-
-                    <div class="requirement-box">
-                        <p><strong>1. ADMINISTRATION POLICIES</strong></p>
-                        <ul>
-                            <li>Agency governance and organizational structure</li>
-                            <li>Coordination of services</li>
-                            <li>Quality improvement program</li>
-                            <li>Complaint management and grievance procedures</li>
-                            <li>Record retention and documentation standards</li>
-                            <li>Confidentiality and HIPAA compliance</li>
-                            <li>Contracts with third-party providers</li>
-                            <li>Financial management</li>
-                            <li>Marketing and public representation compliance</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirement-box">
-                        <p><strong>2. PERSONNEL POLICIES</strong></p>
-                        <ul>
-                            <li>Job descriptions for all positions</li>
-                            <li>Hiring process and qualification verification</li>
-                            <li>Background check procedures (CJIS/LiveScan)</li>
-                            <li>TB screening requirements</li>
-                            <li>Orientation process for new employees</li>
-                            <li>Initial training requirements (CPR, infection control, abuse prevention, etc.)</li>
-                            <li>Dementia training (3 hours within 45 days + 2 hours annually)</li>
-                            <li>Competency assessments</li>
-                            <li>Ongoing education and in-service training</li>
-                            <li>Performance evaluations</li>
-                            <li>Supervision protocols</li>
-                            <li>Disciplinary procedures</li>
-                            <li>Staff health and safety</li>
-                            <li>Employee classification (employee vs. independent contractor)</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirement-box">
-                        <p><strong>3. PATIENT CARE POLICIES</strong></p>
-                        <ul>
-                            <li>Admission criteria and process</li>
-                            <li>Initial assessment by RN (for skilled services)</li>
-                            <li>Individualized care plan development</li>
-                            <li>Care plan review and updates</li>
-                            <li>Assignment of appropriate staff to clients</li>
-                            <li>Supervision of care delivery</li>
-                            <li>Clinical services protocols (for each service offered):
-                                <ul>
-                                    <li>Skilled nursing care</li>
-                                    <li>Home health aide services</li>
-                                    <li>Physical therapy</li>
-                                    <li>Occupational therapy</li>
-                                    <li>Speech therapy</li>
-                                    <li>Medical social services</li>
-                                    <li>Dietary/nutritional services</li>
-                                </ul>
-                            </li>
-                            <li>Activities of daily living assistance protocols</li>
-                            <li>Medication management (if applicable)</li>
-                            <li>Communication with physicians and healthcare providers</li>
-                            <li>Emergency procedures and urgent situations</li>
-                            <li>Discharge planning</li>
-                            <li>Client transfer protocols</li>
-                            <li>Client rights and responsibilities</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirement-box">
-                        <p><strong>4. INFORMED CONSENT POLICIES</strong></p>
-                        <ul>
-                            <li>Informed consent process before service initiation</li>
-                            <li>Client/representative rights notification</li>
-                            <li>Service agreement documentation</li>
-                            <li>Privacy practices (HIPAA Notice)</li>
-                            <li>Financial disclosure and billing practices</li>
-                            <li>Consent for specific treatments or procedures</li>
-                            <li>Advance directives documentation</li>
-                            <li>Right to refuse care</li>
-                        </ul>
-                    </div>
-
-                    <div class="requirement-box">
-                        <p><strong>5. ENVIRONMENT AND SAFETY POLICIES</strong></p>
-                        <ul>
-                            <li>Infection prevention and control (Standard Precautions)</li>
-                            <li>Hand hygiene protocols</li>
-                            <li>Personal protective equipment (PPE) use</li>
-                            <li>Bloodborne pathogen exposure control</li>
-                            <li>Hazardous materials handling</li>
-                            <li>Safe equipment use and maintenance</li>
-                            <li>Home safety assessments</li>
-                            <li>Fall prevention</li>
-                            <li>Fire safety in client homes</li>
-                            <li>Emergency preparedness and response</li>
-                            <li>Incident reporting (accidents, injuries, errors)</li>
-                            <li>Abuse and neglect prevention, identification, and reporting</li>
-                            <li>Worker safety (injury prevention, exposure protocols)</li>
-                        </ul>
-                    </div>
-
-                    <div class="success-highlight">
-                        <p><strong>✓ Format Recommendations:</strong></p>
-                        <ul>
-                            <li>Each policy should have: Title, Purpose, Scope, Policy Statement, Procedure Steps, References, Effective Date, Review Date</li>
-                            <li>Use clear, professional formatting with table of contents</li>
-                            <li>Number all pages</li>
-                            <li>Include revision history</li>
-                            <li>Have all policies reviewed by qualified legal counsel familiar with Maryland healthcare regulations</li>
-                        </ul>
-                    </div>
-
-                    <div class="important-note">
-                        <p><strong>⚠️ Critical:</strong> The application instructions specify exact policies requested by Maryland. Review the application carefully to ensure you address all required areas. Generic templates must be customized to Maryland-specific requirements.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Document 5: Letter of Good Standing -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">5</div>
-                    <div class="doc-title">
-                        <h3>Letter of Good Standing</h3>
-                        <span class="badge required">REQUIRED</span>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>What It Is:</strong> Official documentation that your business entity is registered and in good standing with the State of Maryland.</p>
-                    
-                    <h4>Where to Obtain:</h4>
-                    <div class="requirement-box">
-                        <p><strong>Maryland Department of Assessments and Taxation (SDAT)</strong></p>
-                        <p><strong>Business Express Portal:</strong></p>
-                        <p>Visit: <a href="https://egov.maryland.gov/businessexpress" target="_blank">egov.maryland.gov/businessexpress</a></p>
-                    </div>
-
-                    <h4>Requirements:</h4>
-                    <ul>
-                        <li>Your business must be registered with Maryland SDAT before applying for RSA license</li>
-                        <li>Letter must be current (obtained recently)</li>
-                        <li>Business name on letter must match RSA application exactly</li>
-                        <li>Entity must be in good standing (no outstanding tax issues or compliance problems)</li>
-                    </ul>
-
-                    <h4>What the Letter Confirms:</h4>
-                    <ul>
-                        <li>Business is properly registered in Maryland</li>
-                        <li>All required filings are current</li>
-                        <li>Business is authorized to operate in the state</li>
-                        <li>Tax obligations are up to date</li>
-                    </ul>
-
-                    <div class="important-note">
-                        <p><strong>⚠️ Pre-Requisite:</strong> If you haven't registered your business entity yet, do this FIRST. You cannot complete the RSA license application without it.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Document 6: Worker's Compensation -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">6</div>
-                    <div class="doc-title">
-                        <h3>Worker's Compensation Insurance</h3>
-                        <span class="badge required">REQUIRED</span>
-                        <span class="badge conditional">Exceptions Apply</span>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>What to Submit:</strong> Declaration page from your Worker's Compensation insurance policy.</p>
-                    
-                    <h4>What the Declaration Page Must Show:</h4>
-                    <ul>
-                        <li>Policy holder name (must match your business entity)</li>
-                        <li>Policy number</li>
-                        <li>Effective dates of coverage</li>
-                        <li>Insurance carrier information</li>
-                        <li>Coverage limits</li>
-                        <li>Business classification codes</li>
-                    </ul>
-
-                    <h4>Maryland Worker's Compensation Requirements:</h4>
-                    <div class="requirement-box">
-                        <p><strong>Who Must Have Coverage:</strong></p>
-                        <ul>
-                            <li>Any employer with at least <strong>1 employee</strong> must carry worker's compensation insurance</li>
-                            <li>This includes part-time employees</li>
-                            <li>Coverage must be maintained continuously</li>
-                        </ul>
-                    </div>
-
-                    <h4>Exemptions (Check RSA Application Instructions):</h4>
-                    <div class="important-note">
-                        <p><strong>Possible Exemptions Include:</strong></p>
-                        <ul>
-                            <li>Sole proprietors with no employees (owner only)</li>
-                            <li>Certain independent contractors (must meet strict criteria)</li>
-                            <li>Corporate officers who formally elect to be excluded</li>
-                        </ul>
-                        <p><strong>⚠️ If claiming exemption:</strong> Review the RSA application instruction page carefully. You may need to submit alternative documentation or attestation explaining why coverage is not required.</p>
-                    </div>
-
-                    <h4>Where to Obtain:</h4>
-                    <ul>
-                        <li>Through licensed insurance agents or brokers</li>
-                        <li>Maryland Injured Workers' Insurance Fund (IWIF) - state-sponsored option</li>
-                        <li>Private insurance carriers authorized in Maryland</li>
-                    </ul>
-
-                    <div class="success-highlight">
-                        <p><strong>✓ Pro Tip:</strong> Work with an insurance agent experienced in healthcare agencies. They can ensure proper coverage for home health workers, which may have specific classifications and requirements.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Document 7: RSA Certification -->
-            <div class="doc-card">
-                <div class="doc-header">
-                    <div class="doc-number">7</div>
-                    <div class="doc-title">
-                        <h3>RSA Certification</h3>
-                        <span class="badge required">REQUIRED</span>
-                        <p class="reference">Must be renewed every 3 years</p>
-                    </div>
-                </div>
-                <div class="doc-body">
-                    <p><strong>Purpose:</strong> Certify that your agency understands and will comply with Maryland's labor and employment laws regarding employee classification.</p>
-                    
-                    <h4>Two-Step Process:</h4>
-
-                    <div class="requirement-box">
-                        <p><strong>Step 1: Read the Guidance Document</strong></p>
-                        <p>An individual with authority over the RSA's pay or employment practices must thoroughly read the official guidance document that explains:</p>
-                        <ul>
-                            <li><strong>Employee vs. Independent Contractor Differences</strong>
-                                <ul>
-                                    <li>Legal definitions and distinctions</li>
-                                    <li>IRS guidelines</li>
-                                    <li>Maryland Department of Labor standards</li>
-                                    <li>Common misconceptions</li>
-                                </ul>
-                            </li>
-                            <li><strong>Worker Misclassification</strong>
-                                <ul>
-                                    <li>What constitutes misclassification</li>
-                                    <li>Legal consequences and penalties</li>
-                                    <li>Impact on workers and the state</li>
-                                </ul>
-                            </li>
-                            <li><strong>Compliance Steps</strong>
-                                <ul>
-                                    <li>How to properly classify workers</li>
-                                    <li>Documentation requirements</li>
-                                    <li>Best practices for RSAs</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p><strong>Access Guidance Document:</strong><br>
-                        <a href="https://health.maryland.gov/ohcq/docs/Residential%20Service%20Agency%20Documents/2022-11-01%20RSAPCA%20Guidance%20Document%20%281%29.pdf" target="_blank">Download RSA/PCA Guidance Document</a></p>
-                    </div>
-
-                    <div class="requirement-box">
-                        <p><strong>Step 2: Complete the Online Certification Form</strong></p>
-                        <p>After reading the guidance document, complete the certification form online.</p>
-                        <p><strong>Who Must Sign:</strong> An individual with authority over the agency's pay or employment practices (owner, CEO, HR director, etc.)</p>
-                        <p><strong>What You're Certifying:</strong></p>
-                        <ul>
-                            <li>You have read and understood the guidance document</li>
-                            <li>Your RSA will comply with relevant requirements of Maryland's Labor and Employment Article</li>
-                            <li>If receiving Medicaid reimbursement: Indicate whether you use personal care aides designated as independent contractors</li>
-                        </ul>
-                    </div>
-
-                    <div class="important-note">
-                        <p><strong>⚠️ Critical Compliance Issue:</strong> Worker misclassification is a serious matter in Maryland. Many RSAs have faced penalties for improperly classifying employees as independent contractors. Take this certification seriously and consult with legal counsel if you have any questions about proper classification.</p>
-                    </div>
-
-                    <h4>Key Points About Independent Contractors:</h4>
-                    <div class="requirement-box">
-                        <p>For a worker to be properly classified as an independent contractor (not an employee), they generally must:</p>
-                        <ul>
-                            <li>Control how, when, and where they perform work</li>
-                            <li>Have their own business with multiple clients</li>
-                            <li>Provide their own tools and equipment</li>
-                            <li>Have opportunity for profit or loss</li>
-                            <li>Not be integrated into your agency's regular business operations</li>
-                        </ul>
-                        <p><strong>⚠️ Red Flag:</strong> If your agency controls work schedules, provides training, supervises work closely, or the worker only works for your agency, they are likely an employee, not an independent contractor.</p>
-                    </div>
-
-                    <h4>Renewal Requirement:</h4>
-                    <div class="success-highlight">
-                        <p><strong>Every 3 Years:</strong> Licensed RSAs must recertify by reviewing the most current guidance document and completing a new certification form. OHCQ will provide the updated guidance document annually.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Reference Checklist -->
-            <div class="section">
-                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">✅ Application Submission Checklist</h2>
-                <div class="checklist">
-                    <h3 style="margin-bottom: 15px; color: #1e3c72;">Before Submitting, Verify You Have:</h3>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check1">
-                        <label for="check1"><strong>1. Completed RSA License Application</strong> - All sections filled out, email address included</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check2">
-                        <label for="check2"><strong>2. Business Plan</strong> - Including 1-year budget, marketing plan, and detailed service descriptions</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check3">
-                        <label for="check3"><strong>3. Organizational Chart</strong> - Showing all key positions and reporting structure</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check4">
-                        <label for="check4"><strong>4. Policies and Procedures Manual</strong> - All 5 required sections (Administration, Personnel, Patient Care, Informed Consent, Environment & Safety)</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check5">
-                        <label for="check5"><strong>5. Letter of Good Standing</strong> - From Maryland SDAT Business Express</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check6">
-                        <label for="check6"><strong>6. Worker's Compensation</strong> - Declaration page (or exemption documentation)</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check7">
-                        <label for="check7"><strong>7. RSA Certification</strong> - Completed online after reading guidance document</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check8">
-                        <label for="check8"><strong>All documents reviewed</strong> - Names, dates, and information match across all documents</label>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <input type="checkbox" id="check9">
-                        <label for="check9"><strong>Digital copies prepared</strong> - All documents scanned and ready for electronic submission</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Submission Methods -->
-            <div class="section" style="margin-top: 40px;">
-                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">📤 How to Submit</h2>
-                
-                <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
-                    <div style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); padding: 25px; border-radius: 15px; border-left: 5px solid #27ae60;">
-                        <h3 style="color: #1e7e34; margin-bottom: 15px;">✅ RECOMMENDED: Electronic Submission</h3>
-                        <p><strong>Via OHCQ RSA Dashboard:</strong></p>
-                        <p><a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">health.maryland.gov/ohcq/Pages/Programs.aspx</a></p>
-                        <p style="margin-top: 10px;">Select "Residential Service Agencies"</p>
-                        <p style="margin-top: 10px;"><em>Benefits: Faster processing, automatic confirmation, easier tracking</em></p>
-                    </div>
-                    
-                    <div style="background: #f8f9fa; padding: 25px; border-radius: 15px; border-left: 5px solid #667eea;">
-                        <h3 style="color: #1e3c72; margin-bottom: 15px;">📮 Alternative: Mail Submission</h3>
-                        <p><strong>Mail to:</strong></p>
-                        <p>Ambulatory Care Program<br>
-                        Office of Health Care Quality<br>
-                        7120 Samuel Morse Drive, Second Floor<br>
-                        Columbia, MD 21046</p>
-                        <p style="margin-top: 10px;"><em>Note: Email updates still required, so provide email even if mailing</em></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timeline -->
-            <div class="section" style="margin-top: 40px;">
-                <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">⏱️ Expected Timeline</h2>
-                <div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 25px; border-radius: 15px;">
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Application Review:</strong> 3-4 months</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Provisional License:</strong> 90 days (cannot be extended)</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>Patient Admission Period:</strong> Admit 3 patients, 6 visits each</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd;"><strong>On-Site Survey:</strong> After day 45 of provisional license</li>
-                        <li style="padding: 10px 0;"><strong>Full License Issued:</strong> Upon passing survey</li>
-                    </ul>
-                    <p style="margin-top: 20px; color: #856404;"><strong>Total estimated time from submission to full licensure: 5-7 months</strong></p>
-                </div>
-            </div>
-
-            <!-- Resources -->
-            <div class="quick-links">
-                <h3>📚 Helpful Resources & Links</h3>
-                <a href="https://health.maryland.gov/ohcq/Pages/Programs.aspx" target="_blank">→ OHCQ RSA Dashboard & Application Portal</a>
-                <a href="https://app.smartsheet.com/b/publish?EQBCT=d921c57d95544edc84bf34759f84aad8" target="_blank">→ Residential Service Agencies Information</a>
-                <a href="https://health.maryland.gov/ohcq/docs/Residential%20Service%20Agency%20Documents/2022-11-01%20RSAPCA%20Guidance%20Document%20%281%29.pdf" target="_blank">→ RSA/PCA Guidance Document (Employee Classification)</a>
-                <a href="https://egov.maryland.gov/businessexpress" target="_blank">→ Maryland SDAT Business Express (Letter of Good Standing)</a>
-                <a href="https://www.dpscs.state.md.us/publicservs/fingerprint.shtml" target="_blank">→ LiveScan Fingerprinting Locations</a>
-                <a href="https://marylandfingerprinting.com/" target="_blank">→ Maryland Fingerprinting Pre-Registration</a>
-                <a href="https://mbon.maryland.gov/Pages/default.aspx" target="_blank">→ Maryland Board of Nursing</a>
-                <a href="https://mbon.maryland.gov/Pages/cna-info.aspx" target="_blank">→ Certified Nursing Assistant Information</a>
-            </div>
-
-            <!-- Footer -->
-            <div style="text-align: center; padding: 30px 0; margin-top: 40px; border-top: 2px solid #e0e0e0;">
-                <p style="color: #666; margin-bottom: 10px;"><strong>Need Assistance?</strong></p>
-                <p style="color: #666;">Office of Health Care Quality</p>
-                <p style="color: #666;">Phone: (410) 402-8015</p>
-                <p style="color: #999; font-size: 0.9em; margin-top: 20px;">This guide is for informational purposes only and does not constitute legal advice.<br>Consult with qualified legal counsel for specific guidance on your application.</p>
-            </div>
-        </div>
+    <!-- Group 1: Licensing -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--navy)">
+        <div class="ch-name">Licensing &amp; Application</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.01</span><span class="ch-std-text"><strong>Purpose</strong> - Establish standards for RSAs providing home health services to sick or disabled individuals in their residence</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.02</span><span class="ch-std-text"><strong>Definitions</strong> - 29 defined terms including RSA, skilled care, clinical record, governing authority, significant change of condition</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.03</span><span class="ch-std-text"><strong>License Required</strong> - No person may operate an RSA without an OHCQ license; no fee to apply; $1,000/3-year renewal</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.04</span><span class="ch-std-text"><strong>Licensing Procedures</strong> - Typed application; business plan; org chart; policies per .08B; SDAT good standing; Workers Comp proof; RSA Certification</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.05</span><span class="ch-std-text"><strong>Changes Affecting License</strong> - 25%+ stock transfer = new agency; $50 amended license for name/address; 45-day notice for ownership change</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--navy)">.05-1</span><span class="ch-std-text"><strong>Home Medical Equipment</strong> - Special requirements for DME provision (not applicable to non-skilled RSA)</span></div>
+      </div>
     </div>
 
-    <script>
-        // Make checkboxes persist in local storage
-        document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
-            const id = checkbox.id;
-            checkbox.checked = localStorage.getItem(id) === 'true';
-            
-            checkbox.addEventListener('change', function() {
-                localStorage.setItem(id, this.checked);
-            });
-        });
-    </script>
+    <!-- Group 2: Administration -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--blue)">
+        <div class="ch-name">Administration &amp; Governance</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--blue)">.06</span><span class="ch-std-text"><strong>Public Representation</strong> - Accurately represent licensed scope; no false advertising of unlicensed services</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--blue)">.07</span><span class="ch-std-text"><strong>Inspection by Dept</strong> - OHCQ may conduct unannounced inspections; agency must cooperate and provide records</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--blue)">.08</span><span class="ch-std-text"><strong>Administration</strong> - Governing authority; administrator qualifications; written policies required per .08B (5 categories: admin, personnel, patient care, informed consent, environment/safety)</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--blue)">.09</span><span class="ch-std-text"><strong>Complaint Process</strong> - OHCQ Complaint Hotline: 1-800-492-6005; agency must notify clients of hotline number</span></div>
+      </div>
+    </div>
+
+    <!-- Group 3: Personnel & Training -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--green)">
+        <div class="ch-name">Personnel &amp; Training</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--green)">.10</span><span class="ch-std-text"><strong>Employee Requirements</strong> - TB screening before client contact; health screening; skills assessment; criminal background; license/cert verification; OIG LEIE check; worker classification per HG 19-4A-11</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--green)">.10D</span><span class="ch-std-text"><strong>Certified Caregivers</strong> - CNA required for ADL assistance; CMT required for medication admin under RN delegation</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--green)">.10E</span><span class="ch-std-text"><strong>Waiver of Skilled Services</strong> - Client may sign waiver if no adverse consequences expected and does not require ADL cert</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--green)">.11</span><span class="ch-std-text"><strong>Training</strong> - Agency orientation before client contact; outside trainers require OHCQ approval; skills checklist in employee file</span></div>
+      </div>
+    </div>
+
+    <!-- Group 4: Services & Care -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--purple)">
+        <div class="ch-name">Client Services &amp; Care</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--purple)">.12</span><span class="ch-std-text"><strong>Services Provided</strong> - Written service plan; care plan elements; RN supervision frequencies (45d/3mo/4mo); on-call requirements; 6-month plan review</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--purple)">.13</span><span class="ch-std-text"><strong>Client Representative</strong> - Legal authority for decisions; signs informed consent for plan changes or nonlicensed assistance</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--purple)">.14</span><span class="ch-std-text"><strong>Clinical Records</strong> - Security/confidentiality; care notes weekly and upon significant change; record content requirements</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--purple)">.15</span><span class="ch-std-text"><strong>Maintenance of Records</strong> - Client records retained 5+ years post-discharge; privacy/confidentiality; controlled release</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--purple)">.16</span><span class="ch-std-text"><strong>Client Rights</strong> - Informed consent; dignity/privacy; cost estimates; itemized billing; complaint notification; right to refuse</span></div>
+      </div>
+    </div>
+
+    <!-- Group 5: Specialized Services -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--teal)">
+        <div class="ch-name">Specialized Services</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--teal)">.17</span><span class="ch-std-text"><strong>IV/Related Therapies</strong> - Special requirements for RSAs providing intravenous or related therapy services (not applicable Year 1)</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--teal)">.18</span><span class="ch-std-text"><strong>Ventilator Services</strong> - Special requirements for RSAs providing ventilator-dependent client care (not applicable Year 1)</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--teal)">.19</span><span class="ch-std-text"><strong>Home Medical Equipment</strong> - DME delivery, installation, maintenance, instruction; Medicare Part B certification path (not applicable Year 1)</span></div>
+      </div>
+    </div>
+
+    <!-- Group 6: Enforcement (upper) -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--red)">
+        <div class="ch-name">Enforcement &amp; Sanctions</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--red)">.20</span><span class="ch-std-text"><strong>Sanctions</strong> - OHCQ may impose sanctions for regulatory violations; progressive enforcement actions</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--red)">.21</span><span class="ch-std-text"><strong>Civil Money Penalties</strong> - Financial penalties for regulatory noncompliance; per-violation and per-day assessments</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--red)">.22</span><span class="ch-std-text"><strong>CMP Amounts</strong> - Penalty amounts determined by violation severity, history, and harm to clients</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--red)">.23</span><span class="ch-std-text"><strong>CMP Hearings</strong> - Right to administrative hearing to contest civil money penalties</span></div>
+      </div>
+    </div>
+
+    <!-- Group 7: License Actions -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--slate)">
+        <div class="ch-name">License Actions &amp; Closures</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--slate)">.24</span><span class="ch-std-text"><strong>Emergency Suspension</strong> - Immediate suspension if client health/safety at risk; no prior notice required</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--slate)">.25</span><span class="ch-std-text"><strong>Denial/Revocation</strong> - License denied or revoked for failure to comply; fraud; conviction; inability to operate safely</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--slate)">.26</span><span class="ch-std-text"><strong>Notice to Clients</strong> - Agency must notify clients of closure, suspension, or revocation; ensure continuity of care</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--slate)">.27</span><span class="ch-std-text"><strong>Unlicensed Operation</strong> - Criminal penalty for operating without a license; misdemeanor subject to fine/imprisonment</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:var(--slate)">.28</span><span class="ch-std-text"><strong>Hearings</strong> - Administrative hearing procedures for contested license actions</span></div>
+      </div>
+    </div>
+
+    <!-- Group 8: Required Policies -->
+    <div class="ch-card">
+      <div class="ch-card-head" style="background:var(--gold)">
+        <div class="ch-name">Required Policies (.08B)</div>
+      </div>
+      <div class="ch-stds">
+        <div class="ch-std-row"><span class="ch-std-code" style="color:#9A6E20">ADM</span><span class="ch-std-text"><strong>Administration</strong> - Scope of services; admission criteria; client assessment; billing/records; QA program; clinical management</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:#9A6E20">PER</span><span class="ch-std-text"><strong>Personnel</strong> - Job descriptions; skills assessment; health screening/TB; care supervision requirements; employee file content; discipline</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:#9A6E20">PAT</span><span class="ch-std-text"><strong>Patient Care</strong> - Service provision; skilled service criteria; drug admin; enteral/parenteral; monitoring frequency; client/family training</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:#9A6E20">CON</span><span class="ch-std-text"><strong>Informed Consent</strong> - Consent for plan changes; consent for nonlicensed individual assistance with treatments or self-admin of meds</span></div>
+        <div class="ch-std-row"><span class="ch-std-code" style="color:#9A6E20">ENV</span><span class="ch-std-text"><strong>Environment/Safety</strong> - Formula/IV storage; infection control; biomedical waste; equipment maintenance; emergency procedures</span></div>
+      </div>
+    </div>
+
+  </div><!-- /ch-grid -->
+</div><!-- /section overview -->
+
+<!-- ══ RN SUPERVISION + LICENSE APPLICATION (side by side) ════════ -->
+<div class="two-col">
+
+  <!-- RN Supervision -->
+  <div class="section">
+    <div class="sec-head" style="background:var(--green)">
+      <div class="sec-accent" style="background:var(--gold)"></div>
+      <div class="sec-titles">
+        <span class="sec-title">RN Supervision Frequencies</span>
+        <span class="sec-sub">COMAR 10.07.05.12E - On-site supervision by Registered Nurse</span>
+      </div>
+    </div>
+    <div class="rn-grid">
+      <div class="rn-card">
+        <div class="rn-card-head" style="background:var(--red)">Medication Administration</div>
+        <div class="rn-card-body">
+          <div class="rn-freq" style="color:var(--red)">45 Days</div>
+          <div class="rn-desc">Staff administering medications under RN delegation. Requires CMT certification. RN on-site supervision at least every 45 days.</div>
+        </div>
+      </div>
+      <div class="rn-card">
+        <div class="rn-card-head" style="background:var(--gold)">Self-Admin Assistance</div>
+        <div class="rn-card-body">
+          <div class="rn-freq" style="color:var(--gold)">3 Months</div>
+          <div class="rn-desc">Staff assisting with self-administration of medications (reminders, opening containers). RN on-site supervision every 3 months.</div>
+        </div>
+      </div>
+      <div class="rn-card">
+        <div class="rn-card-head" style="background:var(--green)">No Medication Role</div>
+        <div class="rn-card-body">
+          <div class="rn-freq" style="color:var(--green)">4 Months</div>
+          <div class="rn-desc">Staff who neither administer nor assist with medications. Companion/homemaker services only. RN on-site supervision every 4 months.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- License Application Checklist -->
+  <div class="section">
+    <div class="sec-head" style="background:var(--navy)">
+      <div class="sec-accent" style="background:var(--gold)"></div>
+      <div class="sec-titles">
+        <span class="sec-title">License Application Checklist</span>
+        <span class="sec-sub">COMAR 10.07.05.04 - Required attachments for OHCQ submission</span>
+      </div>
+    </div>
+    <div class="app-grid">
+      <div class="app-card" style="border-color:var(--navy)">
+        <div class="app-icon" style="background:var(--navy)">1</div>
+        <div class="app-text">
+          <div class="app-name">RSA License Application</div>
+          <div class="app-detail">Typed application submitted via OHCQ website. No application fee.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--blue)">
+        <div class="app-icon" style="background:var(--blue)">2</div>
+        <div class="app-text">
+          <div class="app-name">Business Plan</div>
+          <div class="app-detail">1-year operating budget, marketing plan, detailed service description. .04A(h)</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--green)">
+        <div class="app-icon" style="background:var(--green)">3</div>
+        <div class="app-text">
+          <div class="app-name">Org Chart &amp; Job Descriptions</div>
+          <div class="app-detail">Lines of authority; all position qualifications per .08 and .10.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--purple)">
+        <div class="app-icon" style="background:var(--purple)">4</div>
+        <div class="app-text">
+          <div class="app-name">Policies &amp; Procedures (.08B)</div>
+          <div class="app-detail">Admin, personnel, patient care, informed consent, environment/safety.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--gold)">
+        <div class="app-icon" style="background:var(--gold)">5</div>
+        <div class="app-text">
+          <div class="app-name">SDAT Letter of Good Standing</div>
+          <div class="app-detail">Official letter from MD Dept of Assessments &amp; Taxation Business Express.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--teal)">
+        <div class="app-icon" style="background:var(--teal)">6</div>
+        <div class="app-text">
+          <div class="app-name">Workers Comp Proof</div>
+          <div class="app-detail">Declaration page; Corp/LLC without employees: Certificate of Compliance.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--red)">
+        <div class="app-icon" style="background:var(--red)">7</div>
+        <div class="app-text">
+          <div class="app-name">RSA Certification (HG 19-4A-11)</div>
+          <div class="app-detail">Online worker classification attestation. Required even if no PCAs hired.</div>
+        </div>
+      </div>
+      <div class="app-card" style="border-color:var(--mid)">
+        <div class="app-icon" style="background:var(--mid)">8</div>
+        <div class="app-text">
+          <div class="app-name">Insurance Declaration Page</div>
+          <div class="app-detail">General &amp; professional liability. OHCQ may request before on-site survey.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ SCOPE OF SERVICES (CK Annapolis Year 1) ════════════════════ -->
+<div class="section">
+  <div class="sec-head" style="background:var(--purple)">
+    <div class="sec-accent" style="background:var(--gold)"></div>
+    <div class="sec-titles">
+      <span class="sec-title">Scope of Services - Non-Skilled RSA (Year 1)</span>
+      <span class="sec-sub">COMAR 10.07.05.12 - In-scope and out-of-scope service boundaries per CLIN-001</span>
+    </div>
+  </div>
+  <div class="scope-grid">
+    <div class="scope-card" style="border-color:var(--green)">
+      <div class="scope-title" style="color:var(--green)">Personal Care (ADLs)</div>
+      <div class="scope-desc">Bathing, dressing, grooming, toileting, oral hygiene, skin care, transfers, mobility assistance. CNA required per .10D when RN determines need.</div>
+      <div class="scope-ref">COMAR 10.07.05.12</div>
+    </div>
+    <div class="scope-card" style="border-color:var(--blue)">
+      <div class="scope-title" style="color:var(--blue)">Companionship</div>
+      <div class="scope-desc">Conversation, games, reading, accompaniment to appointments, mail assistance, social engagement. Interactive Caregiving applied at every visit.</div>
+      <div class="scope-ref">COMAR 10.07.05.12</div>
+    </div>
+    <div class="scope-card" style="border-color:var(--gold)">
+      <div class="scope-title" style="color:var(--gold)">Homemaking (IADLs)</div>
+      <div class="scope-desc">Light housekeeping, laundry, meal preparation, dishes, trash removal, organization. No heavy cleaning, major repairs, or financial management.</div>
+      <div class="scope-ref">COMAR 10.07.05.12</div>
+    </div>
+    <div class="scope-card" style="border-color:var(--teal)">
+      <div class="scope-title" style="color:var(--teal)">Medication Reminders</div>
+      <div class="scope-desc">Verbal prompts only. No administration, syringe prep, IV management. CMT/RN delegation required for actual administration per .10D.</div>
+      <div class="scope-ref">COMAR 10.07.05.10D-E</div>
+    </div>
+    <div class="scope-card" style="border-color:var(--navy)">
+      <div class="scope-title" style="color:var(--navy)">Respite &amp; Safety Monitoring</div>
+      <div class="scope-desc">Temporary family caregiver relief. Supervision, safety checks, fall prevention, wandering monitoring for cognitively impaired clients.</div>
+      <div class="scope-ref">COMAR 10.07.05.12</div>
+    </div>
+    <div class="scope-card" style="border-color:var(--red)">
+      <div class="scope-title" style="color:var(--red)">Out of Scope (Year 1)</div>
+      <div class="scope-desc">Skilled nursing, wound care, catheter care, injections, IV therapy, PT/OT/ST, medication admin (unless expanded). Refer to home health, hospice, or physician.</div>
+      <div class="scope-ref">COMAR 10.07.05.08B</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KEY DEADLINES & COMPLIANCE ════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head" style="background:var(--red)">
+    <div class="sec-accent" style="background:var(--gold)"></div>
+    <div class="sec-titles">
+      <span class="sec-title">Key Deadlines &amp; Compliance Requirements</span>
+      <span class="sec-sub">Critical timelines across COMAR 10.07.05 sections</span>
+    </div>
+  </div>
+  <table class="dl-table">
+    <thead>
+      <tr>
+        <th style="width:22%">Topic</th>
+        <th style="width:30%">Requirement</th>
+        <th style="width:24%">Consequence of Non-Compliance</th>
+        <th style="width:24%">COMAR Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dl-topic">License Renewal</td>
+        <td class="dl-req">Begin 90+ days before expiration; $1,000 non-refundable fee</td>
+        <td class="dl-consequence">Operating without license; misdemeanor</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.04A(k)</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">TB Screening</td>
+        <td class="dl-req">Before any client contact; documented in personnel file</td>
+        <td class="dl-consequence">Personnel violation; OHCQ citation</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.10B</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Orientation/Training</td>
+        <td class="dl-req">Agency orientation before first client contact; skills checklist in file</td>
+        <td class="dl-consequence">Personnel violation; client safety risk</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.11</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Service Plan</td>
+        <td class="dl-req">Written plan before services begin; review every 6 months</td>
+        <td class="dl-consequence">Clinical deficiency; OHCQ citation</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.12C</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">RN Supervision</td>
+        <td class="dl-req">On-site: 45d (med admin) / 3mo (med assist) / 4mo (other)</td>
+        <td class="dl-consequence">Supervision deficiency; CMP</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.12E</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Care Notes</td>
+        <td class="dl-req">Weekly and upon significant change of condition</td>
+        <td class="dl-consequence">Clinical record deficiency</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.14D</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Client Record Retention</td>
+        <td class="dl-req">5+ years after discharge; secure and confidential</td>
+        <td class="dl-consequence">Records violation; privacy breach</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.15</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Ownership Change Notice</td>
+        <td class="dl-req">Written notice to OHCQ 45 days before change; &gt;25% stock = new license</td>
+        <td class="dl-consequence">License revocation; new application required</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.05B</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Complaint Hotline Notice</td>
+        <td class="dl-req">Notify all clients of OHCQ hotline: 1-800-492-6005</td>
+        <td class="dl-consequence">Client rights violation</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.09 / .16</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">RSA Certification</td>
+        <td class="dl-req">Online attestation at initial licensure; maintained ongoing (HG 19-4A-11)</td>
+        <td class="dl-consequence">License condition violation; OHCQ action</td>
+        <td style="font-size:9.5px;color:#6B7280">Health-General 19-4A-11</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Closure/Client Notice</td>
+        <td class="dl-req">Notify clients of closure, suspension, or revocation; ensure care continuity</td>
+        <td class="dl-consequence">Client abandonment; additional sanctions</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.26</td>
+      </tr>
+      <tr>
+        <td class="dl-topic">Unlicensed Operation</td>
+        <td class="dl-req">Operating without license prohibited</td>
+        <td class="dl-consequence">Misdemeanor; fine and/or imprisonment</td>
+        <td style="font-size:9.5px;color:#6B7280">10.07.05.27</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ OHCQ REQUIRED POLICY CROSSWALK ════════════════════════════ -->
+<div class="section">
+  <div class="sec-head" style="background:var(--blue)">
+    <div class="sec-accent" style="background:var(--gold)"></div>
+    <div class="sec-titles">
+      <span class="sec-title">COMAR 10.07.05.08B Policy Crosswalk</span>
+      <span class="sec-sub">Required written policies mapped to CK Annapolis RSA Policy Manual</span>
+    </div>
+  </div>
+  <table class="cx-table">
+    <thead>
+      <tr style="background:var(--blue)">
+        <th style="width:14%">Category</th>
+        <th style="width:36%">COMAR 10.07.05.08B Requirement</th>
+        <th style="width:25%">CK Policy #</th>
+        <th style="width:25%">CK Policy Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="font-weight:700;font-size:9.5px">Administration</td><td style="font-size:9.5px">Scope of services; delineation/coordination responsibilities</td><td style="font-size:9.5px">CLIN-001, CLIN-013</td><td style="font-size:9.5px">Scope of Services; Coordination of Care</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Administration</td><td style="font-size:9.5px">Admission criteria; assessment of client and home</td><td style="font-size:9.5px">CLIN-002</td><td style="font-size:9.5px">Client Admission, Intake &amp; Assessment</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Administration</td><td style="font-size:9.5px">Billing and service records</td><td style="font-size:9.5px">ADM-003, CLIN-014</td><td style="font-size:9.5px">Billing &amp; Records; Documentation</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Administration</td><td style="font-size:9.5px">Quality assurance program</td><td style="font-size:9.5px">QAPI-001</td><td style="font-size:9.5px">QAPI Program</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Administration</td><td style="font-size:9.5px">Clinical management (assessment, plans, delegation, supervision)</td><td style="font-size:9.5px">CLIN-003, CLIN-004, CLIN-009</td><td style="font-size:9.5px">Service Plan; Monitoring; Medication</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Personnel</td><td style="font-size:9.5px">Job descriptions; skills assessment; health screening/TB</td><td style="font-size:9.5px">Section I, HR-001, HR-003</td><td style="font-size:9.5px">Job Descriptions; Screening; Training</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Personnel</td><td style="font-size:9.5px">Employee file content; counseling/discipline</td><td style="font-size:9.5px">HR-004, HR-006</td><td style="font-size:9.5px">Personnel Files; Performance Mgmt</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Patient Care</td><td style="font-size:9.5px">Service provision; drug admin; monitoring frequency</td><td style="font-size:9.5px">CLIN-001, CLIN-004, CLIN-009</td><td style="font-size:9.5px">Scope; Monitoring; Medication</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Informed Consent</td><td style="font-size:9.5px">Consent for plan changes; nonlicensed assistance</td><td style="font-size:9.5px">CLIN-007</td><td style="font-size:9.5px">Client Rights; Informed Consent &amp; Waivers</td></tr>
+      <tr><td style="font-weight:700;font-size:9.5px">Environ/Safety</td><td style="font-size:9.5px">Infection control; equipment; emergency procedures</td><td style="font-size:9.5px">CLIN-011, CLIN-012, CLIN-017</td><td style="font-size:9.5px">Infection Control; Emergency; Home Safety</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /content -->
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-left">Comfort Keepers of Annapolis &nbsp;&middot;&nbsp; Jugan &amp; JK Senior Companions LLC &nbsp;&middot;&nbsp; COMAR 10.07.05</div>
+  <div class="footer-right">For internal compliance reference only - Consult OHCQ and the full regulation text for authoritative requirements - Not legal advice</div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+function exportPDF() {
+  var btn = document.getElementById('export-btn');
+  btn.textContent = 'Preparing PDF...';
+  btn.disabled = true;
+  setTimeout(function() {
+    window.print();
+    btn.textContent = '\u2B07 Export to PDF';
+    btn.disabled = false;
+  }, 300);
+}
+</script>
+
 </body>
 </html>
